@@ -38,6 +38,43 @@ h5 {
   margin-top: 5px;
   font-weight: 600;
 }
+/*DIVIDER  -ou-*/
+.strike {
+  color:black;
+    margin-top:15px;
+    display: block;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap; 
+     margin-bottom:15px;
+}
+
+.strike > span {
+    position: relative;
+    display: inline-block;
+}
+
+.strike > span:before,
+.strike > span:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 9999px;
+    height: 1px;
+    background: #ccc;
+}
+
+       
+.strike > span:before {
+    right: 100%;
+    margin-right: 15px;
+}
+
+.strike > span:after {
+    left: 100%;
+    margin-left: 15px;
+}
+/*FIM DIVIDER*/
 .nav > li > a {
   color: #a7b1c2;
   font-weight: 600;
@@ -168,7 +205,7 @@ h5 {
   font-size: 12px;
 }
 .nav-header {
-  padding: 33px 25px;
+  padding: 10px 25px;
   background-color: #2f4050;
   background-image: url("patterns/header-profile.png");
 }
@@ -1676,6 +1713,7 @@ div.dt-button-info {
 .img-circle {
   border-radius: 50%;
 }
+
 .btn-circle {
   width: 30px;
   height: 30px;
@@ -5313,7 +5351,7 @@ dd.project-people {
 .chat-discussion {
   background: #eee;
   padding: 15px;
-  height: 400px;
+  height: 430px;
   overflow-y: auto;
 }
 .chat-users {

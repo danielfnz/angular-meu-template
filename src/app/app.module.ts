@@ -1,43 +1,95 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import {RouterModule} from "@angular/router";
 import {LocationStrategy, HashLocationStrategy} from '@angular/common';
-
-import {ROUTES} from "./app.routes";
+import {ROUTES} from "./rotas/app.routes";
 import { AppComponent } from './app.component';
+import {ToastModule} from 'ng2-toastr/ng2-toastr';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { AgmCoreModule } from '@agm/core';
+import { Ng4GeoautocompleteModule } from 'ng4-geoautocomplete';
+
+
+//Firebase imports
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
 // App views
-import {MainViewModule} from "./views/main-view/main-view.module";
-import {MinorViewModule} from "./views/minor-view/minor-view.module";
-import {LoginModule} from "./views/login/login.module";
-import {RegisterModule} from "./views/register/register.module";
+
+//Services
+import { AuthService } from "./services/auth.service";
+import { FirebaseService } from "./services/firebase.service";
+
+//Guards
+import { AuthGuard } from "./auth.guard";
 
 // App modules/components
-import {LayoutsModule} from "./components/common/layouts/layouts.module";
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { CadastroComponent } from './cadastro/cadastro.component';
+import { PainelModule } from "./painel/layout/painel/painel.module";
+import { RecuperarSenhaComponent } from './recuperar-senha/recuperar-senha.component';
+import { PerfilComponent } from './painel/perfil/perfil.component';
+import { Erro404Component } from './erros/erro404/erro404.component';
+
+export const environment = {
+  production: false,
+  firebase: {
+    apiKey: "AIzaSyCeIL__gmbAGK8qo1WruyYFFXwYOoSuGOA",
+    authDomain: "advogaqui.firebaseapp.com",
+    databaseURL: "https://advogaqui.firebaseio.com",
+    projectId: "advogaqui",
+    storageBucket: "advogaqui.appspot.com",
+    messagingSenderId: "495412534690"
+  }
+};
 
 @NgModule({
   declarations: [
-    AppComponent
-  ],
-  imports: [
+    AppComponent,
+    HomeComponent,
+    LoginComponent,
+    CadastroComponent,
+    RecuperarSenhaComponent,
+     PerfilComponent,
+    Erro404Component,
+    ],
+    imports: [
     // Angular modules
+    BrowserAnimationsModule,
     BrowserModule,
     HttpModule,
-
-    // Views
-    MainViewModule,
-    MinorViewModule,
-    LoginModule,
-    RegisterModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot(ROUTES),
+    ToastModule.forRoot(),
 
     // Modules
-    LayoutsModule,
+    PainelModule,
 
-    RouterModule.forRoot(ROUTES)
+    //Firebase
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
+
+    //Maps
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCL1fC3KR3sBUhDk1TXllXRDMZ4uW9h7KA',
+      libraries: ['places']
+    }),
+    Ng4GeoautocompleteModule.forRoot()
   ],
-  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
+  providers: [
+    {provide: LocationStrategy, useClass: HashLocationStrategy},
+    AuthService,
+    FirebaseService,
+    
+    //Guards
+    AuthGuard,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

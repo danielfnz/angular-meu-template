@@ -1,0 +1,128 @@
+<body class="gray-bg">
+<div class="loginColumns animated fadeInDown">
+    <div class="row">
+
+        <div class="col-md-6">
+            <img src="assets/logos/advogaqui.png" alt="AdvogAqui" class="img-responsive center-block" [routerLink]="['/']">
+            <h2 class="font-bold">Bem vindo ao AdvogAqui</h2>
+
+            <p>
+                Texto explicando o que é o AdvogAqui
+            </p>
+
+            <p>
+                Encontre o advogado que você precisa.
+            </p>
+
+
+            <p>
+                <small>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</small>
+            </p>
+
+        </div>
+
+        <div class="col-md-6">
+            <div class="ibox-content">
+                <form class="m-t" (ngSubmit)="doCadastro()" [formGroup]="formulario">
+                    <img src="assets/icon/semfoto.png" alt="Foto de perfil" class="img-circle img-responsive center-block">
+                    <br>
+                    <!--              <div class="row form-group">
+                        <div class="col-md-6">
+                           <img src="assets/icons/cliente.png" alt="Sou Cliente">
+                           <p>Sou Cliente</p>
+                        </div>
+                        <div class="col-md-6">
+                            <img src="assets/icons/advogado.png" alt="Sou Advogado">
+                            <p>Sou Advogado</p>
+                        </div>
+                    </div> -->
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" formControlName="nomeCompleto" placeholder="Nome Completo" required="">
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-md-3">
+                            <input type="cel" class="form-control" formControlName="ddd" placeholder="DDD" required="">
+                        </div>
+                        <div class="col-md-9">
+                            <input type="cel" class="form-control" formControlName="celular" placeholder="Celular" required="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" formControlName="email" placeholder="E-mail" required="">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" formControlName="senha" placeholder="Senha" required="">
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-4">
+                            <label for="estado">Estado</label>
+                            <select name="estado" formControlName="estado" class="form-control">
+                               <option disabled>Estado</option>
+                                <option value="AC">AC</option>
+                                <option value="AL">AL</option>
+                                <option value="AP">AP</option>
+                                <option value="AM">AM</option>
+                                <option value="BA">BA</option>
+                                <option value="CE">CE</option>
+                                <option value="DF">DF</option>
+                                <option value="ES">ES</option>
+                                <option value="GO">GO</option>
+                                <option value="MA">MA</option>
+                                <option value="MT">MT</option>
+                                <option value="MS">MS</option>
+                                <option value="MG">MG</option>
+                                <option value="PA">PA</option>
+                                <option value="PB">PB</option>
+                                <option value="PR">PR</option>
+                                <option value="PE">PE</option>
+                                <option value="PI">PI</option>
+                                <option value="RJ">RJ</option>
+                                <option value="RN">RN</option>
+                                <option value="RS">RS</option>
+                                <option value="RO">RO</option>
+                                <option value="RR">RR</option>
+                                <option value="SC">SC</option>
+                                <option value="SP">SP</option>
+                                <option value="SE">SE</option>
+                                <option value="TO">TO</option>
+                            </select>
+                        </div>
+                        <div class="col-md-8">
+                            <label for="cidade">Cidade</label>
+                            <input type="cel" class="form-control" formControlName="cidade" placeholder="Cidade">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="perfil">Profissão</label>
+                        <select class="form-control" id="perfil" formControlName="perfil">
+                            <option disabled>Selecione a Profissão</option>
+                            <option value="1">Advogado</option>
+                            <option value="2">Estudante de Direito</option>
+                            <option value="2">Outra profissão</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary block full-width m-b" [disabled]="!formulario.valid">Criar minha conta</button>
+                    <p class="m-t">
+                        <small> Ao clicar em "Criar minha Conta", você estará indicando que leu e concorda com os Termos de uso do AdvogAqui.</small>
+                    </p>
+                    <p class="text-muted text-center">
+                        <small>Já é cadastrado?</small>
+                    </p>
+                    <a [routerLink]="['/login']" class="btn btn-sm btn-white btn-block">Entrar</a>
+                </form>
+            </div>
+        </div>
+    </div>
+    <hr/>
+    <div class="row">
+        <div class="col-md-6">
+            AdvogAqui
+        </div>
+        <div class="col-md-6 text-right">
+            <small>© 2017</small>
+        </div>
+    </div>
+</div>
+</body>

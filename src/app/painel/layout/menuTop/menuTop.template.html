@@ -1,0 +1,88 @@
+        <div class="row border-bottom">
+        <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " (click)="toggleNavigation()"><i class="fa fa-bars"></i> </a>
+        </div>
+            <ul class="nav navbar-top-links navbar-right">
+
+                <li class="dropdown" *ngIf="auth?.userData?.perfil == 1">
+                    <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                        <i class="fa fa-bell"></i>  <span class="label label-warning" *ngIf="(notificacoes | async)?.length>0">{{(notificacoes | async)?.length}}</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-messages">
+                        <span *ngFor="let item of notificacoes | async">
+                        <li>
+                            <div class="dropdown-messages-box">
+                                <a [routerLink]="['/painel/advogado/oportunidades']" class="pull-left">
+                                    <img alt="image" class="img-circle" src="{{item?.photoURL}}">
+                                </a>
+                                <div class="media-body">
+                                    <small class="pull-right">46h ago</small>
+                                    <strong>{{item?.nomeCliente}}</strong> abriu uma requisição de  atendimento. <br>
+                                    <small class="text-muted">3 days ago at 7:58 pm - 10.06.2014</small>
+                                </div>
+                            </div>
+                        </li>     
+                        <li class="divider"></li>
+                        </span>
+                        <li>
+                            <div class="text-center link-block">
+                                <a [routerLink]="['/painel/advogado/oportunidades']">
+                                    <i class="fa fa-envelope"></i> <strong>Ver todas oportunidades</strong>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+              <!--   <li class="dropdown">
+                    <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                        <i class="fa fa-bell"></i>  <span class="label label-primary">8</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-alerts">
+                        <li>
+                            <a href="mailbox.html">
+                                <div>
+                                    <i class="fa fa-envelope fa-fw"></i> You have 16 messages
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="profile.html">
+                                <div>
+                                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                                    <span class="pull-right text-muted small">12 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="grid_options.html">
+                                <div>
+                                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <div class="text-center link-block">
+                                <a href="notifications.html">
+                                    <strong>See All Alerts</strong>
+                                    <i class="fa fa-angle-right"></i>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </li> -->
+
+                <li>
+                    <a (click)="logout()">
+                        <i class="fa fa-sign-out"></i> Sair
+                    </a>
+                </li>
+            </ul>
+
+        </nav>
+        </div>

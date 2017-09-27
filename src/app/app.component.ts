@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewContainerRef } from '@angular/core';
 import { correctHeight, detectBody } from './app.helpers';
+import { ToastsManager } from "ng2-toastr";
+import { AuthService } from "./services/auth.service";
 
 declare var jQuery:any;
 
@@ -9,7 +11,13 @@ declare var jQuery:any;
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
+  
+  constructor(toastr: ToastsManager, vRef: ViewContainerRef,
+  auth: AuthService) {
+    toastr.setRootViewContainerRef(vRef);
+    auth.chechLogged();
+  }
+  
   ngAfterViewInit() {
     // Run correctHeight function on load and resize window event
     jQuery(window).bind("load resize", function() {
