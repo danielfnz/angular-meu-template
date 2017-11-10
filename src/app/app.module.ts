@@ -37,14 +37,7 @@ import { Erro404Component } from './erros/erro404/erro404.component';
 
 export const environment = {
   production: false,
-  firebase: {
-    apiKey: "AIzaSyCeIL__gmbAGK8qo1WruyYFFXwYOoSuGOA",
-    authDomain: "advogaqui.firebaseapp.com",
-    databaseURL: "https://advogaqui.firebaseio.com",
-    projectId: "advogaqui",
-    storageBucket: "advogaqui.appspot.com",
-    messagingSenderId: "495412534690"
-  }
+
 };
 
 @NgModule({
