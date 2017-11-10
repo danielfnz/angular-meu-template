@@ -70,7 +70,7 @@ export const environment = {
 
     //Maps
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyCL1fC3KR3sBUhDk1TXllXRDMZ4uW9h7KA',
+      apiKey: 'xxxxxxxxxxxxxxxxxx',
       libraries: ['places']
     }),
     Ng4GeoautocompleteModule.forRoot()
